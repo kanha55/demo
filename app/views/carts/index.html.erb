@@ -1,0 +1,21 @@
+
+<% if @carts.count == 0 %>
+  <h1>Your cart is Empty</h1>
+<% else %>
+  <h1>Your cart has <%= current_user.carts.count %> item.</h1>  
+<% end %>
+
+<% @carts.each do |cart| %>
+  <% Product.where(id:cart.product_id).all.each do |product| %>
+    <div style="float: left;">
+      <%= image_tag product.product_image.thumb.url%>
+    </div>
+
+    <h2>Product Name :- <%= product.title %></h2>
+    <p>Product Description :- <%= product.description %></p>
+    <h5>Product Price :- <%= product.price %></h5>
+    <%= link_to "Checkout", new_product_order_path(product.id), class:"btn btn-primary" %>&nbsp;&nbsp;&nbsp;&nbsp;
+    <%= link_to "Delete",cart_path(cart.id), method: :delete, data: {confirm: "Are you sure to delete cart_item ?"},class:"btn btn-danger" %>
+    <br><br><br><br><br><br><br><br><br><hr>
+  <% end %>
+<% end %>

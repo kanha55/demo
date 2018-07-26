@@ -1,0 +1,27 @@
+<%= link_to "Back", root_path %>
+
+<% if @orders.count == 0 %>
+  <h1 style="color: green">User_Id :-  <%= current_user.email %>, You Have No Order Yet</h1>
+<% else %>
+  <h1 style="color: green">User_Id :-  <%= current_user.email %>, your all order is given below :- </h1>
+<% end %>    
+
+<% @orders.each do |order| %>
+  <h1 style="color: blue">User Name :- <%= order.fname %>&nbsp;&nbsp;<%= order.lname %></h1>
+  
+  <% order.products.each do |product| %>
+    <div style="float: left;">
+      <%= image_tag product.product_image.thumb.url%>
+    </div>
+
+    <h2>Product Name :- <%= product.title %></h2>
+    <p>Product Description :- <%= product.description %></p>
+    <h5>Product Price :- <%= product.price %></h5>
+
+  <% end %>  
+  address :- <%= order.address %> 
+  <br><br>&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= link_to "Delete", order_path(order.id), method: :delete, data: {confirm: "Are you sure to delete order ?"},class:"btn btn-danger" %>
+  <br><br><br><br><hr>
+<% end %>
+<%= link_to "Back", root_path %>

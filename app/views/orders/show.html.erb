@@ -1,0 +1,22 @@
+<%= link_to "Back", root_path, class:"btn btn-info" %>
+
+
+  <h1 style="color: green">Hello:-
+  <%= @product.orders.last.fname %>
+  <%= @product.orders.last.lname %>
+ <br><br> 
+ <span style="color: black"> Delivery Address :- <%= @product.orders.last.address %></span></h1>
+
+  <h1 style="color: gray">Your Order Details is :-</h1>
+    
+  <div style="float: left;">
+  <%= image_tag @product.product_image.thumb.url %>
+  </div>
+
+  <div>
+  <h3>product name :- <%= @product.title %><br><br>
+  product description :- <%= @product.description %><br><br>
+  to be paid :- <%= @product.price %></h3>
+  </div>
+
+<%= link_to "Back", root_path,class:"btn btn-info" %>

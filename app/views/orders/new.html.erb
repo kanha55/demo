@@ -1,0 +1,19 @@
+<center>
+<div style="background-color:rgb(239, 239, 245);width: 528px"><br>
+<h1>Please Enter detail to place order</h1>
+<%= form_with scope: :order, url: product_orders_path(params[:product_id]), local: false do |form| %>
+  
+  
+    <%= form.text_field :fname,class:"form-control", placeholder:"Enter First Name",style:"width:528px;"%>
+ <br>
+     <%= form.text_field :lname,class:"form-control", placeholder:"Enter Last Name",style:"width:528px;"  %>
+ <br>
+    <%= form.text_area :address,class:"form-control", placeholder:"Enter Full Address",style:"width:528px;" %>
+ <br>
+   <p>
+    <%= form.submit class:"btn btn-primary",role:"button",style:"width:528px; font-size:30px" %>
+  </p>
+  <br>
+<% end %>
+</div>
+</center>

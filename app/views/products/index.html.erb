@@ -1,0 +1,37 @@
+        <%= link_to "Post",post_index_path %>
+<% @products.each do |product| %>
+  <div style="background-color: rgb(240, 240, 245)">
+    <div style="float: left;">
+      <%= image_tag product.product_image.thumb.url%>
+    </div>
+    <br>
+
+    <div style=" float: left; width: 890px;">
+      <h1><%= product.title %></h2>
+      <p><%= product.description %></p>
+      <p>categeory = <%= product.categeory.name %></p>
+      <h5>Rs.<%= product.price %> </h5>
+    </div>
+      <br><br>
+    
+    <div style="">
+      &nbsp;
+      <% if user_signed_in? %>
+         <%= link_to "Add to Cart", new_cart_path(:product_id => product.id),class:"btn btn-primary", role:"button" %> <br><br>
+        &nbsp;&nbsp;<%= link_to "Buy",new_product_order_path(product.id),class:"btn btn-success", role:"button" %> <br><br>
+      <% else %>
+         <%= link_to "Add to Cart", new_user_session_path, class:"btn btn-primary", role:"button" %> <br><br>
+        &nbsp;&nbsp;<%= link_to "Buy",new_user_session_path,class:"btn btn-success",role:"button" %><br><br>
+      <% end %>
+
+      <% if can? :edit, Product %>
+        &nbsp;&nbsp;<%= link_to "Edit", edit_product_path(product),class:"btn btn-warning", role:"button" %>
+        &nbsp;&nbsp;<%= link_to "Delete", product_path(product),class:"btn btn-danger", role:"button", method: :delete, data: {confirm: "Are you sure to delete product ?"}  %>
+      <% end %>  
+    </div>  
+  <br><br><br><br>
+  </div>
+
+  <hr>
+
+ <% end %>
