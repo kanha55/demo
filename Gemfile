@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.3.1'
+ruby '2.6.2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -19,6 +19,8 @@ gem 'sass-rails', '~> 5.0'
 gem 'jquery-rails'
 # Use Uglifier as compressor for JavaScript assets
 gem 'devise', '~> 4.4', '>= 4.4.3'
+gem 'redis'
+gem 'pg'
 
 gem 'bootstrap-sass', '~> 3.3.4.1'
 
