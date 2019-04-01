@@ -10,6 +10,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
 
+  config.action_cable.allowed_request_origins = ['http://localhost:3000']
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -22,7 +23,7 @@ Rails.application.configure do
     port:                 587,
     domain:               'gmail',
     user_name:            'kanha.dubey9@gmail.com',
-    password:             '8120127032',
+    password:             '',
     authentication:       :plain
     }
 

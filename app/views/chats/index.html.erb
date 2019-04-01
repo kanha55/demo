@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chat</title>
+</head>
+<body>  
+<center>
+	<%= form_with(model: @chat, local: true) do |form| %>
+  
+  <p>
+    <%= form.label :Chating %><br>
+    <%= form.text_field :title %>
+  </p>
+  <div id="chat_id">
+  </div>	
+    <%= form.button :send %>
+  </p>
+	<% end %>
+</center>	
+</body>
+</html>
